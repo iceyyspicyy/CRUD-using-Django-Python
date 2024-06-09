@@ -1,0 +1,22 @@
+{% extends 'master.html' %}
+{% block content %}
+<div class='container'>
+<blockquote class="blockquote text-left ">
+        {% for i in mycontacts %}
+    <div class='pd-2 bg-secondary px-4 py-4'>
+    <p > Message {{forloop.counter}} from {{i.name}}</p>
+    <p> Contacts : {{i.phone}} <br>{{i.email}}</p>
+
+
+        <small class = 'text-muted bg-light'> Message : {{i.message}} </small>
+    </br>
+</div>
+</br>
+    
+
+{% endfor %}
+</blockquote>   
+</div>
+
+
+{% endblock %}

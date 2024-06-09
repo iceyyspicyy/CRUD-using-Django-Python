@@ -1,0 +1,54 @@
+{% extends "master.html" %}
+{% block title %}
+   My Portfolio - HOME 
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+    <div class="container-fluid">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'me.jpg' %}" style="width: 200px; height: 300px;" class="d-block mx-auto rounded" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'me.jpg' %}" style="width: 300px; height: 500px;" class="d-block mx-auto rounded" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'me.jpg' %}" style="width: 300px; height: 500px;" class="d-block mx-auto rounded" alt="Third slide">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="container my-5">
+        {% load static %}
+        {% for i in aboutme %}
+        <div class="text-center mb-5">
+            <h1 class="display-4">Hello, my name is {{ i.firstname }} {{i.lastname}}</h1>
+            <p class="lead">{{i.about}}</p>
+            <p class="text-muted">Came to this earth on: {{i.dob_me}}</p>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block scripts %}
+    <!-- Include jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJTY5KVphtPhzWj9WO1clHTMGaEqVJK5a9jT9/1pVuF2y5Q6d" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-smHYkdP+W9PG0XT9iP3J0Y6t27pcXBp6SA4lH2nUciTk5VSMf6MG7g8Y9nD/Ei6S" crossorigin="anonymous"></script>
+{% endblock %}
+
